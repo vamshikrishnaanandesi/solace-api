@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: solace-api
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - JWT_SECRET=${JWT_SECRET:-your-default-secret-key}
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - solace-network
+
+  # Optional: Add a database service
+  # postgres:
+  #   image: postgres:15-alpine
+  #   container_name: solace-postgres
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_DB: solace_db
+  #     POSTGRES_USER: solace_user
+  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-default_password}
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+  #   networks:
+  #     - solace-network
+
+  # Optional: Add Redis for caching
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: solace-redis
+  #   restart: unless-stopped
+  #   ports:
+  #     - "6379:6379"
+  #   networks:
+  #     - solace-network
+
+networks:
+  solace-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
