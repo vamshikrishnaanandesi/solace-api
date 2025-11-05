@@ -1,0 +1,33 @@
+{
+  "name": "solace-api",
+  "version": "1.0.0",
+  "description": "Backend for solace application built using Node and Typescript",
+  "main": "dist/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "start": "node dist/server.js",
+    "dev": "nodemon --exec ts-node --files src/server.ts",
+    "lint": "eslint 'src/**/*.ts'"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.10.0",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.3"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.5",
+    "@types/winston": "^2.4.4",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "winston": "^3.18.3"
+  }
+}
