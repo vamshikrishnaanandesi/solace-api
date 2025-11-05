@@ -5,7 +5,7 @@ import { authMiddleware } from '../middlewares';
 const router = Router();
 
 router.get('/', (req, res) => {
-    res.send('Welcome to the API');
+    res.send('Welcome to the Solace API');
 });
 
 router.use('/users', authMiddleware, userRoutes);

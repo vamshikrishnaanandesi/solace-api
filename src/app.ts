@@ -1,7 +1,6 @@
 import express from 'express';
 import router from './routes/index';
-import {errorHandler} from './middlewares';
-import {logHandler} from './middlewares/logHandler';
+import {errorHandler, logHandler} from './middlewares';
 
 const app = express();
 
