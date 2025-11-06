@@ -15,21 +15,25 @@ const logger = winston.createLogger({
       format: winston.format.combine(
         winston.format.colorize(),
         winston.format.simple()
-      )
-    })
+      ),
+    }),
   ],
 });
 
 // Logging middleware function
-export const logHandler = (req: Request, res: Response, next: NextFunction): void => {
+export const logHandler = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void => {
   const start = Date.now();
-  
+
   // Log request
   logger.info(`${req.method} ${req.url}`, {
     method: req.method,
     url: req.url,
     ip: req.ip,
-    userAgent: req.get('User-Agent')
+    userAgent: req.get('User-Agent'),
   });
 
   // Log response when finished
@@ -39,7 +43,7 @@ export const logHandler = (req: Request, res: Response, next: NextFunction): voi
       method: req.method,
       url: req.url,
       statusCode: res.statusCode,
-      duration: `${duration}ms`
+      duration: `${duration}ms`,
     });
   });
 

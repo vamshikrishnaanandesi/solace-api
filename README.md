@@ -7,7 +7,8 @@ A production-ready boilerplate for building scalable Node.js APIs with TypeScrip
 - TypeScript with Express.js
 - JWT Authentication
 - Winston Logging
-- ESLint for code quality
+- ESLint + Prettier for code quality
+- Pre-commit hooks (lint & format)
 - Hot reload development
 
 ## Installation
@@ -38,9 +39,20 @@ npm run dev
 npm run build
 npm start
 
-# Linting
-npm run lint
+# Code Quality
+npm run lint          # Check for linting errors
+npm run lint:fix      # Fix auto-fixable lint errors
+npm run format        # Format code with Prettier
+npm run format:check  # Check if code is formatted
 ```
+
+## Code Quality
+
+This project uses ESLint and Prettier with pre-commit hooks to ensure code quality:
+
+- **Automatic formatting** on save (VS Code)
+- **Pre-commit hooks** run lint + format on staged files
+- **Consistent code style** across the entire codebase
 
 ## License
 

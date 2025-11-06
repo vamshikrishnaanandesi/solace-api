@@ -1,7 +1,8 @@
 import express from 'express';
 import router from './routes/index';
-import {errorHandler, logHandler} from './middlewares';
+import { errorHandler, logHandler } from './middlewares';
 
+// Express application setup with Prettier and ESLint
 const app = express();
 
 app.use(express.json());
