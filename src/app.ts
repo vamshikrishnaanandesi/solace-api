@@ -2,6 +2,7 @@ import express from 'express';
 import router from './routes/index';
 import {errorHandler, logHandler} from './middlewares';
 
+// Express application setup
 const app = express();
 
 app.use(express.json());
